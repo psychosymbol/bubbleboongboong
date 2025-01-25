@@ -4438,7 +4438,7 @@
     "m_Title": "SINE WAVE FOR  VERTEX DISPLACEMENT",
     "m_Position": {
         "x": -5435.0,
-        "y": -876.999755859375
+        "y": -877.0
     }
 }
 
@@ -6386,8 +6386,8 @@
     "m_ObjectId": "970cbb08640e4dbbaff215961c752f55",
     "m_Title": "DISTORTION",
     "m_Position": {
-        "x": -5375.00048828125,
-        "y": 739.0000610351563
+        "x": -5375.0,
+        "y": 739.0
     }
 }
 
@@ -7091,7 +7091,7 @@
     "m_Title": "LINE",
     "m_Position": {
         "x": -3445.0,
-        "y": -345.999755859375
+        "y": -346.0
     }
 }
 

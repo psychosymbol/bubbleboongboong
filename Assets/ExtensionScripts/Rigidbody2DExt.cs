@@ -2,24 +2,39 @@ using UnityEngine;
 
 public static class Rigidbody2DExt
 {
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius, ForceMode2D mode = ForceMode2D.Force)
 
-    public static void AddExplosionForce(this Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float explosionRadius, float upwardsModifier = 0.0F, ForceMode2D mode = ForceMode2D.Force)
     {
-        var explosionDir = rb.position - explosionPosition;
-        var explosionDistance = explosionDir.magnitude;
 
-        // Normalize without computing magnitude again
-        if (upwardsModifier == 0)
-            explosionDir /= explosionDistance;
-        else
-        {
-            // From Rigidbody.AddExplosionForce doc:
-            // If you pass a non-zero value for the upwardsModifier parameter, the direction
-            // will be modified by subtracting that value from the Y component of the centre point.
-            explosionDir.y += upwardsModifier;
-            explosionDir.Normalize();
-        }
+        var dir = (body.transform.position - explosionPosition);
 
-        rb.AddForce(Mathf.Lerp(0, explosionForce, (1 - explosionDistance)) * explosionDir, mode);
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+
+        // Debug.Log(dir.normalized * (wearoff <= 0f ? 0f : explosionForce) * wearoff);
+
+        body.AddForce(dir.normalized * (wearoff <= 0f ? 0f : explosionForce) * wearoff, mode);
+
+    }
+
+
+    public static void AddExplosionForce(this Rigidbody2D body, float explosionForce, Vector3 explosionPosition, float explosionRadius, float upliftModifier, ForceMode2D mode = ForceMode2D.Force)
+
+    {
+
+        var dir = (body.transform.position - explosionPosition);
+
+        float wearoff = 1 - (dir.magnitude / explosionRadius);
+
+        Vector3 baseForce = dir.normalized * (wearoff <= 0f ? 0f : explosionForce) * wearoff;
+
+        body.AddForce(baseForce);
+
+
+        float upliftWearoff = 1 - upliftModifier / explosionRadius;
+
+        Vector3 upliftForce = Vector2.up * explosionForce * upliftWearoff;
+
+        body.AddForce(upliftForce, mode);
+
     }
 }

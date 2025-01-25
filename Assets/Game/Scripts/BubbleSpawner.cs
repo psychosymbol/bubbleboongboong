@@ -15,7 +15,6 @@ public class BubbleSpawner : MonoBehaviour
     }
 
     public GameObject bubblePrefab;
-    [SerializeField]
     private GameObject currentBubble;
     Vector3 lastMousePos;
     Vector3 mouseDelta { get { return Input.mousePosition - lastMousePos; } }
@@ -28,8 +27,11 @@ public class BubbleSpawner : MonoBehaviour
     public float minBubbleSize = .5f;
     public float chargeUpSpeed = 0.5f;
     public float chargeDownSpeed = 0.2f;
+    public float charge_forceMultiplier = 10f;
+    public float small_forceMultiplier = 5f;
     public float bubbleMassMultiplier = 0.1f;
     public float smallSpawnDistance = 10; // px unit
+    [HideInInspector]
     public float currentSpawnDistance = 0f;
 
     private void Update()
@@ -88,6 +90,7 @@ public class BubbleSpawner : MonoBehaviour
 
         rb2d.isKinematic = false;
         rb2d.mass = currentBubbleScale * bubbleMassMultiplier;
+        rb2d.AddForce(Vector2.up * charge_forceMultiplier, ForceMode2D.Impulse);
         bubbleCollider.enabled = true;
         currentBubble = null;
     }
@@ -101,10 +104,19 @@ public class BubbleSpawner : MonoBehaviour
         currentSpawnDistance += mouseDelta.magnitude;
         if (currentSpawnDistance > smallSpawnDistance)
         {
-            Vector2 scaleValue = Vector2.one * chargeDownSpeed;
-            currentBubble.transform.localScale -= (Vector3)scaleValue;
+            // Vector2 scaleValue = Vector2.one * chargeDownSpeed;
+            // currentBubble.transform.localScale -= (Vector3)scaleValue;
+
+            currentBubbleScale -= chargeDownSpeed;
             if (currentBubbleScale < minBubbleSize)
+            {
                 currentBubble.transform.localScale = new Vector3(minBubbleSize, minBubbleSize, 1);
+            }
+            else
+            {
+                currentBubble.transform.localScale = new Vector3(currentBubbleScale, currentBubbleScale, 1);
+            }
+
             ReleaseSmallBubble(mousePos);
             currentSpawnDistance -= smallSpawnDistance;
         }
@@ -125,6 +137,9 @@ public class BubbleSpawner : MonoBehaviour
     void ReleaseSmallBubble(Vector3 mousePos)
     {
         var smallbubble = Instantiate(bubblePrefab, mousePos, Quaternion.identity, bubbleParent);
+        Rigidbody2D rb2d = smallbubble.GetComponent<Rigidbody2D>();
+        rb2d.mass = 0.5f * bubbleMassMultiplier;
+        rb2d.AddForce(Vector2.up * small_forceMultiplier, ForceMode2D.Impulse);
         smallBubbles.Add(smallbubble);
     }
 

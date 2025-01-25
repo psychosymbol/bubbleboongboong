@@ -349,16 +349,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 4482853262763056053, guid: d0f7083f6181c234aab64805d25a9e74, type: 3}
-  currentBubble: {fileID: 0}
   bubbleParent: {fileID: 199090620}
   smallBubbles: []
   maxBubbleSize: 2
-  minBubbleSize: 0.5
-  chargeUpSpeed: 0.5
-  chargeDownSpeed: 0.2
+  minBubbleSize: 0.2
+  chargeUpSpeed: 1
+  chargeDownSpeed: 0.5
+  charge_forceMultiplier: 5
+  small_forceMultiplier: 1
   bubbleMassMultiplier: 0.1
-  smallSpawnDistance: 10
-  currentSpawnDistance: 0
+  smallSpawnDistance: 50
+  currentSpawnDistance: 3.6279984
 --- !u!4 &397993676
 Transform:
   m_ObjectHideFlags: 0
@@ -392,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &458440195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -769,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1072650334
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1516,7 +1517,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1592,7 +1593,7 @@ Transform:
   m_GameObject: {fileID: 1455195163}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.92, z: 0}
+  m_LocalPosition: {x: 0, y: -5.6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1722,7 +1723,7 @@ Transform:
   m_GameObject: {fileID: 1501093760}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5.5, z: 0}
   m_LocalScale: {x: 15, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1844,7 +1845,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -7.5, y: 10}
-  - {x: 7.5, y: -10}
+  - {x: 7.455659, y: 9.953167}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1922,7 +1923,7 @@ BuoyancyEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 576
   m_SurfaceLevel: 10
   m_Density: 2
   m_LinearDrag: 5

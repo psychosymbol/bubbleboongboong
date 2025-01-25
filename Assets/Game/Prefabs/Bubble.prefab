@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusMult: 5
-  forceMult: 50
+  forceMult: 10

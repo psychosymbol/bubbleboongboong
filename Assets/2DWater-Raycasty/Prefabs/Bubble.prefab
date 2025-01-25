@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4019396985268395517}
   - component: {fileID: 3154804952439360504}
   - component: {fileID: 2604954006879165330}
+  - component: {fileID: -2783062650231470546}
   m_Layer: 6
   m_Name: Bubble
   m_TagString: Untagged
@@ -148,3 +149,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-2783062650231470546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482853262763056053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfe6fefb253475488f038ab84c7e75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radiusMult: 5
+  forceMult: 50

@@ -319,6 +319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 4482853262763056053, guid: e55f931f87dce41409ccc91a41947cba, type: 3}
   currentBubble: {fileID: 0}
+  maxBubbleSize: 2
+  minBubbleSize: 0.5
+  chargeUpSpeed: 0.5
+  chargeDownSpeed: 0.2
+  bubbleMassMultiplier: 0.1
+  smallSpawnDistance: 10
+  currentSpawnDistance: 0
 --- !u!4 &397993676
 Transform:
   m_ObjectHideFlags: 0

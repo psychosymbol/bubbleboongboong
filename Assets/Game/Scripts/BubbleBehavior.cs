@@ -38,6 +38,8 @@ public class BubbleBehavior : MonoBehaviour
         //    bubbleBehavior.BubblePop();
         //}
 
+        BubbleSpawner.instance.smallBubbles.Remove(gameObject);
+
         Destroy(gameObject);
     }
 }

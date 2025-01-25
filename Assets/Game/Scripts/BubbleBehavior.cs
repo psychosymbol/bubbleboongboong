@@ -29,7 +29,7 @@ public class BubbleBehavior : MonoBehaviour
         foreach (Collider2D obj in affectedPushedObject)
         {
             Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-            rb.AddExplosionForce(transform.localScale.x * forceMult, transform.position, transform.localScale.x * radiusMult, 0, ForceMode2D.Impulse);
+            rb.AddExplosionForce(transform.localScale.x * forceMult, transform.position, transform.localScale.x * radiusMult, ForceMode2D.Impulse);
         }
 
         //foreach(Collider2D obj in affectedBreakObject)

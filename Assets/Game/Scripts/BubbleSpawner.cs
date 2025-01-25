@@ -20,6 +20,8 @@ public class BubbleSpawner : MonoBehaviour
     Vector3 lastMousePos;
     Vector3 mouseDelta { get { return Input.mousePosition - lastMousePos; } }
 
+    public Transform bubbleParent;
+
     public List<GameObject> smallBubbles = new List<GameObject>();
 
     public float maxBubbleSize = 2f;
@@ -62,7 +64,7 @@ public class BubbleSpawner : MonoBehaviour
     {
         if (currentBubble != null) return;
 
-        currentBubble = Instantiate(bubblePrefab, mousePos, Quaternion.identity);
+        currentBubble = Instantiate(bubblePrefab, mousePos, Quaternion.identity, bubbleParent);
 
         Rigidbody2D rb2d = currentBubble.GetComponent<Rigidbody2D>();
         rb2d.isKinematic = true;
@@ -122,7 +124,7 @@ public class BubbleSpawner : MonoBehaviour
 
     void ReleaseSmallBubble(Vector3 mousePos)
     {
-        var smallbubble = Instantiate(bubblePrefab, mousePos, Quaternion.identity);
+        var smallbubble = Instantiate(bubblePrefab, mousePos, Quaternion.identity, bubbleParent);
         smallBubbles.Add(smallbubble);
     }
 

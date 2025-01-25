@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1086369149349238088
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_gameWater
+  m_Shader: {fileID: -6465566751694194690, guid: f73a274e38b74674fa97146941d1c5d0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BubbleTexture:
+        m_Texture: {fileID: 8400000, guid: c2d8a3ecf6780e240bb60d5732704d9b, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BodyTransparency: 0.452
+    - _CausticsOffsetSpeed: 1
+    - _CausticsPower: 9.5
+    - _CausticsScale: 10
+    - _CausticsStrength: 1
+    - _DistortionOffsetSpeed: 1
+    - _DistortionScale: 30
+    - _DistortionStrength: 0.0025
+    - _LineLenght: 0.985
+    - _WaveCount: 0.75
+    - _WaveFlowDirection: 1
+    - _WaveSize: 0.16
+    - _WaveSpeed: 4
+    m_Colors:
+    - _BodyColor: {r: 0.39150938, g: 0.7061791, b: 1, a: 1}
+    - _CausticsColor: {r: 5.340313, g: 5.340313, b: 5.340313, a: 1}
+    - _CausticsScrollDir: {r: 0.045, g: 0, b: 0, a: 0}
+    - _CausticsTiling: {r: 0.5, g: 1.5, b: 0, a: 0}
+    - _DistortionDir: {r: 0.05, g: 0, b: 0, a: 0}
+    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

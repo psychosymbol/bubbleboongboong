@@ -26,11 +26,11 @@ public class BubbleSpawner : MonoBehaviour
             bubbleCollider.enabled = false;
         }
         //hold down mouse to make a bigger bubble
-        if(Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
             Debug.Log("HoldClick");
             currentBubble.transform.position = mousePos;
-            if(currentBubble.transform.localScale.x <1)
+            if (currentBubble.transform.localScale.x < 2)
             {
                 Vector2 scaleValue = Vector2.one * Time.deltaTime * .5f;
                 Vector3 scaleUp = new Vector3(scaleValue.x, scaleValue.y, 0);
@@ -38,7 +38,7 @@ public class BubbleSpawner : MonoBehaviour
             }
             else
             {
-                currentBubble.transform.localScale = Vector3.one;
+                currentBubble.transform.localScale = Vector3.one * 2;
             }
             if (mouseDelta.magnitude > 5f)
             {
@@ -51,11 +51,12 @@ public class BubbleSpawner : MonoBehaviour
             lastMousePos = Input.mousePosition;
         }
         //release to fire off a bubble
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             Debug.Log("ClickUp");
             Rigidbody2D rb2d = currentBubble.GetComponent<Rigidbody2D>();
             rb2d.isKinematic = false;
+            rb2d.mass = currentBubble.transform.localScale.x / 10;
             Collider2D bubbleCollider = rb2d.GetComponent<Collider2D>();
             bubbleCollider.enabled = true;
             currentBubble = null;

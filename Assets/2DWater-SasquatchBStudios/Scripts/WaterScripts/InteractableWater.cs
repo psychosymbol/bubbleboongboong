@@ -1,4 +1,3 @@
-using UnityEditor.SpeedTree.Importer;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
